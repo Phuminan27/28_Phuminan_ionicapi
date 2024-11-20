@@ -3,49 +3,52 @@
     <ion-title>
       ข้อมูลนักเรียน ปวช.2/4
     </ion-title>
+    <ion-back-button slot="start" default-href="#"></ion-back-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
 
   <ion-label class="text-center">
-    <h1><b>กรอกข้อมูลนักเรียน ปวช.2/4</b></h1>
+    <h1><b>แก้ไขข้อมูลนักเรียน ปวช.2/4</b></h1>
   </ion-label>
+
+  <ion-input type="hidden"[(ngModel)]="member.id"></ion-input>
 
   <ion-item>
     <ion-label position="floating">รหัสนักเรียน</ion-label>
-    <ion-input [(ngModel)]="txtstu"></ion-input>
+    <ion-input [(ngModel)]="member.id_stu"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">ชื่อ-สกุล</ion-label>
-    <ion-input [(ngModel)]="txtname"></ion-input>
+    <ion-input [(ngModel)]="member.name"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">ชื่อเล่น</ion-label>
-    <ion-input [(ngModel)]="txtnname"></ion-input>
+    <ion-input [(ngModel)]="member.nname"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">อายุ</ion-label>
-    <ion-input [(ngModel)]="txtage"></ion-input>
+    <ion-input [(ngModel)]="member.age"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">เบอร์โทรศัพท์</ion-label>
-    <ion-input [(ngModel)]="txtphone"></ion-input>
+    <ion-input [(ngModel)]="member.phone"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label position="floating">ที่อยู่</ion-label>
-    <ion-input [(ngModel)]="txtaddress"></ion-input>
+    <ion-input [(ngModel)]="member.address"></ion-input>
   </ion-item>
 
   <ion-list>
     <ion-item>
       <ion-label>สถานะภาพ</ion-label>
-      <ion-select aria-label="Fruit" interface="popover" placeholder="สถานะภาพ" slot="end" [(ngModel)]="txtstatus">
+      <ion-select aria-label="Fruit" interface="popover" placeholder="สถานะภาพ" slot="end" [(ngModel)]="member.status">
         <ion-select-option value="โสด">โสด</ion-select-option>
         <ion-select-option value="มีแฟน">มีแฟน</ion-select-option>
         <ion-select-option value="สมรส">สมรส</ion-select-option>
@@ -54,9 +57,7 @@
   </ion-list>
 
   <div class="text-center mt-4">
-    <ion-button slot="end" (click)="addmembers()" color="b">บันทึกข้อมูล</ion-button>
-    <ion-button slot="end" (click)="showdata()" color="y">เเสดงข้อมูลข้อมูล</ion-button>
-    
+    <ion-button (click)="editmember()" color="b">แก้ไขข้อมูลนักเรียน</ion-button>
   </div>
 
 </ion-content>
